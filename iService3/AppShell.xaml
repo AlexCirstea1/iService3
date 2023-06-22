@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="iService3.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:iService3.Views"
+    Shell.FlyoutBehavior="Disabled">
+
+    <TabBar x:Name="MyTabBar">
+
+        <Tab Title="Home" Icon="home_icon.png">
+            <ShellContent ContentTemplate="{DataTemplate local:Home}" />
+        </Tab>
+
+        <Tab Title="Service" Icon="service_icon.png">
+            <ShellContent ContentTemplate="{DataTemplate local:Service}" />
+        </Tab>
+
+        <Tab Title="Appointments" Icon="schedule.svg">
+            <ShellContent ContentTemplate="{DataTemplate local:AppointmentPage}" />
+        </Tab>
+
+        <Tab Title="Cars" Icon="mycars_icon.png">
+            <ShellContent ContentTemplate="{DataTemplate local:Cars}" />
+        </Tab>
+
+        <Tab Title="Account" Icon="account.svg">
+            <ShellContent ContentTemplate="{DataTemplate local:Account}" Route="account"/>
+        </Tab>
+    </TabBar>
+</Shell>

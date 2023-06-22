@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="iService3.Views.CarFormVIN"
+             Title="CarFormVIN"
+             BackgroundImageSource="pattern.svg">
+    <Frame
+        Margin="30,200,30,280"
+        Padding="25"
+        BackgroundColor="#1d232b"
+        BorderColor="#00bfff">
+        <VerticalStackLayout
+            VerticalOptions="Center" 
+            HorizontalOptions="Center">
+            <Label 
+                Text="Enter VIN number"
+                TextColor="White"
+                Margin="0,20,0,0"
+                FontFamily="coolvetica"
+                FontSize="Large"/>
+            <Entry
+                x:Name="VinEntry"
+                TextColor="White"
+                Margin="0,20,0,0"
+                FontFamily="coolvetica"
+                FontSize="Large"></Entry>
+            <Button
+                x:Name="SaveBtn"
+                Text="Save"
+                Clicked="SaveBtn_OnClicked"
+                Margin="0,20,0,0"
+                FontFamily="coolvetica"
+                FontSize="Large"></Button>
+        </VerticalStackLayout>
+    </Frame>
+</ContentPage>

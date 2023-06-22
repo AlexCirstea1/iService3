@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="iService3.Views.CarForm"
+             Title="CarForm"
+             BackgroundImageSource="pattern.svg">
+    <Frame
+        Margin="30,200,30,280"
+        Padding="25"
+        BackgroundColor="#1d232b"
+        BorderColor="#00bfff">
+    <VerticalStackLayout
+        
+        BackgroundColor="#1d232b"
+    >
+        <Picker x:Name="manufacturerPicker"
+                Title="Select a Manufacturer"
+                ItemsSource="{Binding Manufacturers}"
+                SelectedItem="{Binding SelectedManufacturer}"
+                Margin="0,20,0,0"
+                FontFamily="coolvetica"
+                FontSize="17"
+                TextColor="White"
+                TitleColor="White"
+                SelectedIndexChanged="ManufacturerPicker_OnSelectedIndexChanged">
+        </Picker>
+
+        <Picker x:Name="modelPicker"
+                Title="Select a Manufacturer"
+                ItemsSource="{Binding Models}"
+                SelectedItem="{Binding SelectedModel}"
+                Margin="0,20,0,0"
+                FontFamily="coolvetica"
+                FontSize="17"
+                TextColor="White"
+                TitleColor="White">
+        </Picker>
+
+            <Entry 
+            x:Name ="Year" 
+            Placeholder="Year" 
+            Margin="0,20,0,0" 
+            FontFamily="coolvetica"
+            FontSize="17"
+            TextColor="White">
+        </Entry>
+        <Button 
+                    x:Name="addCarBtn" 
+                    Text="ADD" 
+                    Margin="0,30,0,0"
+                    FontFamily="coolvetica"
+                    FontSize="19"
+                    TextColor="#00bfff"
+                    BackgroundColor="#111111"
+            Clicked="addCarBtn_Clicked">
+        </Button>
+
+    </VerticalStackLayout>
+    </Frame>
+</ContentPage>

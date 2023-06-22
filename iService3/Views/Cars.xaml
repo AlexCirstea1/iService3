@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="iService3.Views.Cars"
+             BackgroundImageSource="pattern.svg">
+    <ScrollView>
+        <VerticalStackLayout>
+            <!--<AbsoluteLayout>
+                <ImageButton
+                    AbsoluteLayout.LayoutBounds="350,30"
+                    Source="refresh.svg"
+                    Clicked="ImageButton_Clicked" />
+                <Button
+                    AbsoluteLayout.LayoutBounds="13,5"
+                    x:Name="addBtn"
+                    Text="Add Car"
+                    HorizontalOptions="Center"
+                    Clicked="addBtn_Clicked"
+                    WidthRequest="300"
+                    Margin="15"
+                    FontFamily="coolvetica"
+                    FontSize="19"
+                    TextColor="White"
+                    BackgroundColor="#111111"
+                    BorderColor="#00bfff"
+                    BorderWidth="1">
+                    <Button.Shadow>
+                        <Shadow Brush="Black"
+                                Radius="20"
+                                Opacity="0.8" />
+                    </Button.Shadow>
+                </Button>
+            </AbsoluteLayout>-->
+            <Button
+                x:Name="AddBtn"
+                Text="Add Manually"
+                HorizontalOptions="Center"
+                Clicked="addBtn_Clicked"
+                WidthRequest="300"
+                Margin="25"
+                FontFamily="coolvetica"
+                FontSize="19"
+                TextColor="White"
+                BackgroundColor="#111111"
+                BorderColor="#00bfff"
+                BorderWidth="1">
+                <Button.Shadow>
+                    <Shadow Brush="Black"
+                            Radius="20"
+                            Opacity="0.8" />
+                </Button.Shadow>
+            </Button>
+            <Button
+                x:Name="AddBtnVin"
+                Text="Add by VIN"
+                HorizontalOptions="Center"
+                Clicked="AddBtnVin_OnClicked"
+                WidthRequest="300"
+                Margin="0,0,0,20"
+                FontFamily="coolvetica"
+                FontSize="19"
+                TextColor="White"
+                BackgroundColor="#111111"
+                BorderColor="#00bfff"
+                BorderWidth="1">
+                <Button.Shadow>
+                    <Shadow Brush="Black"
+                            Radius="20"
+                            Opacity="0.8" />
+                </Button.Shadow>
+            </Button>
+            <Frame
+                BackgroundColor="Transparent"
+                Margin="10"
+                BorderColor="Black">
+                <ListView x:Name="carsListView"
+                  SeparatorVisibility="Default"
+                  SeparatorColor="Black"
+                  VerticalOptions="FillAndExpand"
+                  HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout
+                                Padding="10">
+                                    <Grid Margin="30,10,0,10">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="80"/>
+                                            <RowDefinition Height="50"/>
+                                            <RowDefinition Height="50"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image
+                                            Grid.Row="0"
+                                            Grid.Column="0"
+                                            HeightRequest="80" WidthRequest="120" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Aspect="AspectFit">
+                                            <Image.Source>
+                                                <UriImageSource Uri="{Binding ImageUrl}"></UriImageSource>
+                                            </Image.Source>
+                                        </Image>
+                                        <Grid
+                                            Grid.Row="1"
+                                            Grid.Column="0"
+                                            Margin="0,5,0,0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="25"/>
+                                                <RowDefinition Height="25"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label
+                                            Grid.Row="0" Grid.Column="0"
+                                            Text="{Binding Manufacturer}" FontSize="20" TextColor="White" />
+                                            <Label
+                                            Grid.Row="1" Grid.Column="0"
+                                            Text="{Binding Model}" FontSize="16" TextColor="Gray" />
+                                        </Grid>
+
+                                        <Label
+                                            Grid.Row="2" Grid.Column="0"
+                                            Text="{Binding Year}" FontSize="16" TextColor="Gray" />
+                                        <Button
+                                            x:Name="ScheduleAppointmentBtn"
+                                            Grid.Row="0"
+                                            Grid.Column="1"
+                                            Text="Schedule Appointment"
+                                            FontSize="15"
+                                            LineBreakMode="WordWrap"
+                                            WidthRequest="120"
+                                            HeightRequest="60"
+                                            BackgroundColor="#111111"
+                                            Clicked="ScheduleAppointmentBtn_Clicked" />
+                                        <Button
+                                            x:Name="UpdateBtn"
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            Text="Update"
+                                            FontSize="16"
+                                            LineBreakMode="WordWrap"
+                                            WidthRequest="120"
+                                            HeightRequest="40"
+                                            BackgroundColor="#111111"
+                                            Clicked="UpdateBtn_Clicked" />
+                                        <Button
+                                            x:Name="DeleteBtn"
+                                            Grid.Row="2"
+                                            Grid.Column="1"
+                                            Text="Delete"
+                                            FontSize="16"
+                                            WidthRequest="120"
+                                            HeightRequest="40"
+                                            LineBreakMode="WordWrap"
+                                            BackgroundColor="#111111"
+                                            TextColor="IndianRed"
+                                            Clicked="DeleteBtn_Clicked" />
+                                    </Grid>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="iService3.Views.About"
+             BackgroundImageSource="pattern.svg">
+    <VerticalStackLayout
+        VerticalOptions="Center">
+
+        <Image
+            Source="applogo_white.png"
+            WidthRequest="700"></Image>
+        
+        <Label Text="&#169; 2023 iService" FontSize="18" HorizontalOptions="Center" TextColor="#8B9A46" Margin="0,20,0,10" />
+        <Label Text="Developed by Alexandru Cirstea" FontSize="16" HorizontalOptions="Center" TextColor="White" />
+        <Label Text="Academia de Studii Economice din Bucuresti" FontSize="16" HorizontalOptions="Center" TextColor="White" Margin="0,0,0,20" />
+
+        <Button
+            Text="Back"
+            VerticalOptions="Center"
+            BackgroundColor="#111111"
+            TextColor="#8B9A46"
+            FontFamily="coolvetica"
+            FontSize="20"
+            Pressed="Button_Pressed"
+            Margin="100,10,100,10">
+            <Button.Shadow>
+                <Shadow Brush="Black"
+                        Radius="15"
+                        Opacity="0.6" />
+            </Button.Shadow>
+        </Button>
+
+    </VerticalStackLayout>
+</ContentPage>

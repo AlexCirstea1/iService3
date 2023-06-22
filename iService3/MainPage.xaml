@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="iService3.MainPage"
+             BackgroundImageSource="pattern.svg">
+
+    <StackLayout
+        Margin="20,130,20,0">
+        <Label
+            Text="LOGIN"
+            TextColor="White"
+            VerticalOptions="Center" HorizontalOptions="Center"
+            
+            FontSize="35"
+            Margin="0,0,0,30"></Label>
+
+        <Frame BackgroundColor="#3c3c3c" CornerRadius="10" HasShadow="True" Margin="0,0,0,10" BorderColor="#3c3c3c">
+            <Entry x:Name="UsernameEntry" Placeholder="Username" Margin="0" FontSize="17" FontFamily="coolvetica" TextColor="#ACACAC"/>
+        </Frame>
+        <Frame BackgroundColor="#3c3c3c" CornerRadius="10" HasShadow="True" Margin="0,0,0,25" BorderColor="#3c3c3c">
+            <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" Margin="0" FontSize="17" FontFamily="coolvetica" TextColor="#ACACAC"/>
+        </Frame>
+
+        <Button x:Name="LoginButton" 
+                Text="Login" Clicked="LoginButton_Clicked" 
+                Margin="0,0,0,10" 
+                FontSize="19" FontFamily="coolvetica">
+            <Button.Shadow>
+                <Shadow Brush="#3c3c3c"
+                        Radius="20"
+                        Opacity="0.3" />
+            </Button.Shadow>
+        </Button>
+
+        <Grid
+            Margin="0,20,0,20"
+            HorizontalOptions="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Text="Not registered?" FontSize="Small" VerticalOptions="Center" TextColor="White"/>
+            <Button Grid.Column="1" Text="Create Account" Clicked="Register" FontSize="Small" BackgroundColor="Transparent" TextColor="#8B9A46" BorderColor="#8B9A46" BorderWidth="0" />
+        </Grid>
+
+        <Button x:Name="RegisterButtonWithGoogle"
+                BackgroundColor="#3c3c3c"
+                HorizontalOptions="Center"
+                BorderColor="#E1E1E1"
+                BorderWidth="0"
+                FontSize="19" FontFamily="coolvetica"
+                Margin="20"
+                WidthRequest="300"
+                Text="  Register with Google" Clicked="RegisterButton_OnClicked">
+            <!--<Button.ContentLayout>
+                <Button.ContentLayout Position="End" />
+            </Button.ContentLayout>-->
+            <Button.ImageSource>
+                <FileImageSource File="google_logo.svg" />
+            </Button.ImageSource>
+            <Button.Shadow>
+                <Shadow Brush="#3c3c3c"
+                        Radius="20"
+                        Opacity="0.3" />
+            </Button.Shadow>
+        </Button>
+
+        <Button x:Name="RegisterButtonWithFacebook"
+                BackgroundColor="#3c3c3c"
+                BorderColor="#E1E1E1"
+                BorderWidth="0"
+                FontSize="19" FontFamily="coolvetica"
+                WidthRequest="300"
+                Text="  Register with Facebook" Clicked="RegisterButton_OnClicked">
+            <!--<Button.ContentLayout>
+                <Button.ContentLayout Position="End" />
+            </Button.ContentLayout>-->
+            <Button.ImageSource>
+                <FileImageSource File="facebook_logo.png" />
+            </Button.ImageSource>
+            <Button.Shadow>
+                <Shadow Brush="#3c3c3c"
+                        Radius="20"
+                        Opacity="0.3" />
+            </Button.Shadow>
+        </Button>
+
+    </StackLayout>
+</ContentPage>

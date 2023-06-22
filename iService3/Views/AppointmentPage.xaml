@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="iService3.Views.AppointmentPage"
+             BackgroundImageSource="pattern.svg">
+    <VerticalStackLayout>
+        <Frame
+            BackgroundColor="#111111"
+            Margin="10"
+            BorderColor="#111111">
+            <ListView 
+                x:Name="appointmentsListView"
+                SeparatorVisibility="Default"
+                SeparatorColor="Black"
+                VerticalOptions="FillAndExpand"
+                HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Grid Margin="20">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="80"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Text="Vehicle:" TextColor="White" Grid.Row="0" Grid.Column="0" Margin="0,0,0,10"/>
+                                    <Label Text="{Binding CarName}" TextColor="White" Grid.Row="0" Grid.Column="1" Margin="0,0,0,10"/>
+
+                                    <Label Text="Type:" TextColor="White" Grid.Row="1" Grid.Column="0" Margin="0,0,0,10"/>
+                                    <Label Text="{Binding AppointmentType}" TextColor="White" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10"/>
+
+                                    <Label Text="Date:" TextColor="White" Grid.Row="2" Grid.Column="0" Margin="0,0,0,10"/>
+                                    <Label Text="{Binding AppointmentDate}" TextColor="White" Grid.Row="2" Grid.Column="1" Margin="0,0,0,10"/>
+
+                                    <Label Text="Service:" TextColor="White" Grid.Row="3" Grid.Column="0" Margin="0,0,0,10"/>
+                                    <Label Text="{Binding ServiceName}" TextColor="White" Grid.Row="3" Grid.Column="1" Margin="0,0,0,10"/>
+
+                                    <Label Text="Confirmed:" TextColor="White" Grid.Row="4" Grid.Column="0" Margin="0,0,0,10"/>
+                                    <Label Text="{Binding isConfirmed}" TextColor="White" Grid.Row="4" Grid.Column="1" Margin="0,0,0,10"/>
+                                </Grid>
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Frame>
+    </VerticalStackLayout>
+</ContentPage>
