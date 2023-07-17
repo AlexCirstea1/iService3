@@ -1,7 +1,6 @@
 using iService3.Models;
 using iService3.Services;
 using iService3.Tools;
-using System.Globalization;
 
 namespace iService3.Views;
 
@@ -105,6 +104,12 @@ public partial class ScheduleAppointment : ContentPage
             return;
         }
 
+        if (IntervalPicker.SelectedIndex < 0)
+        {
+            await DisplayAlert("Error", "Please select an interval", "OK");
+            return;
+        }
+
         if (string.IsNullOrEmpty(typeEntry.Text))
         {
             await DisplayAlert("Error", "Please enter the appointment type", "OK");
@@ -120,6 +125,13 @@ public partial class ScheduleAppointment : ContentPage
             CarId = _car.CarId,
             UserId = userID
         };
+
+        if (appointment.AppointmentNotes.Length > 100)
+        {
+            await DisplayAlert("Error", "Appointment notes exceed the maximum length", "OK");
+            return;
+        }
+
         await _appointmentService.ScheduleAppointment(appointment);
         await Navigation.PopModalAsync();
     }

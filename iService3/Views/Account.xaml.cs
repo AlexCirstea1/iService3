@@ -26,13 +26,19 @@ public partial class Account : ContentPage
             string userJson = Preferences.Get("userData", "");
             User userData = JsonConvert.DeserializeObject<User>(userJson);
             NewsletterSwitch.IsToggled = (bool)userData.NewsletterSub;
+            //avatar.Source = ImageStorageProfile.ProfilePicture;
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
             throw;
         }
+    }
 
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        //avatar.Source = ImageStorageProfile.ProfilePicture;
     }
     public static void GoToHomePage()
     {
@@ -50,9 +56,23 @@ public partial class Account : ContentPage
         GoToHomePage();
     }
 
-    private void OnAvatarTapped(object sender, TappedEventArgs e)
+    private async void OnAvatarTapped(object sender, TappedEventArgs e)
     {
-        DisplayAlert("Profile Picture Clicked", "clicked!", "Ok", "Cancel");
+        var result = await FilePicker.PickAsync(new PickOptions
+        {
+            PickerTitle = "Select Profile Picture",
+            FileTypes = FilePickerFileType.Images
+        });
+
+        if (result == null)
+        {
+            return;
+        }
+
+        var stream = await result.OpenReadAsync();
+        ImageStorageProfile.ProfilePicture = ImageSource.FromStream(() => stream);
+        //avatar.Source = ImageStorageProfile.ProfilePicture;
+        //DisplayAlert("Profile Picture Clicked", "clicked!", "Ok", "Cancel");
     }
 
     private async void NewsletterSwitch_OnToggled(object sender, ToggledEventArgs e)
@@ -81,9 +101,33 @@ public partial class Account : ContentPage
             if (selectedCar != null)
             {
                 await _userService.SetFavouriteCar(userId, selectedCar.CarId);
+                LoadImage();
             }
         }
     }
 
+    private async void LoadImage()
+    {
+        var userId = int.Parse(await _secureStorageToolKit.GetUserID());
+        var favoriteCarId = await _userService.GetFavoriteCarId(userId);
+        try
+        {
+            byte[] imageBytes = await _carService.GetImage(favoriteCarId);
 
+            if (imageBytes != null)
+            {
+                var imageSource = ImageSource.FromStream(() => new MemoryStream(imageBytes));
+                ImageStorage.CarImage = imageSource;
+            }
+            else
+            {
+                ImageStorage.RemoveCarImage();
+                Console.WriteLine("Image not found or error occurred.");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An error occurred while loading the image: {ex.Message}");
+        }
+    }
 }

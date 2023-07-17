@@ -25,7 +25,7 @@ namespace iService3.Tools
             var httpClient = new HttpClient(GetInsecureHandler())
             {
                 //BaseAddress = new Uri("https://iservice-api.azurewebsites.net")
-                BaseAddress = new Uri("https://82.76.182.103:81/")
+                BaseAddress = new Uri("https://188.26.168.152:81/")
             };
             return httpClient;
         }

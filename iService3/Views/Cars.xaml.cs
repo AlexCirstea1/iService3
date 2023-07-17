@@ -48,10 +48,6 @@ public partial class Cars : ContentPage
         await Navigation.PushModalAsync(new CarForm());
     }
 
-    private void UpdateBtn_Clicked(object sender, EventArgs e)
-    {
-
-    }
 
     private async void ScheduleAppointmentBtn_Clicked(object sender, EventArgs e)
     {
@@ -68,11 +64,6 @@ public partial class Cars : ContentPage
             await _carService.DeleteCar(car.CarId);
             //LoadCars();
         }
-    }
-
-    private void ImageButton_Clicked(object sender, EventArgs e)
-    {
-        LoadCars();
     }
 
     private async void AddBtnVin_OnClicked(object sender, EventArgs e)

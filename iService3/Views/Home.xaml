@@ -8,7 +8,7 @@
 
         <HorizontalStackLayout Padding="10" HorizontalOptions="Center" Spacing="10">
             <Frame HeightRequest="50" WidthRequest="50" CornerRadius="60" BorderColor="#00bfff">
-                <Image Source="avatar.png" HeightRequest="50" WidthRequest="50" Aspect="AspectFill" />
+                <Image x:Name="avatar" Source="avatar.png" HeightRequest="50" WidthRequest="50" Aspect="AspectFill" />
             </Frame>
             <VerticalStackLayout Margin="10,20,30,0" Padding="10" >
                 <Label HorizontalOptions="Center" VerticalOptions="Center" TextColor="White" FontSize="20" Text="Welcome, " x:Name="GreetingLabel"/>

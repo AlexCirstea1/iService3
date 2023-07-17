@@ -18,7 +18,7 @@
     <Color x:Key="Gray900">#212121</Color>
     <Color x:Key="Gray950">#141414</Color>
     <Color x:Key="Black1">#111111</Color>
-    <Color x:Key="Black2">#1e1e1e</Color>
+    <Color x:Key="Black2">#CC1e1e1e</Color>
     <Color x:Key="Black3">#3c3c3c</Color>
     <Color x:Key="AccentColor">#8B9A46</Color>
 

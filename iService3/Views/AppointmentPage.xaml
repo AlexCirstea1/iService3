@@ -44,8 +44,27 @@
                                     <Label Text="Service:" TextColor="White" Grid.Row="3" Grid.Column="0" Margin="0,0,0,10"/>
                                     <Label Text="{Binding ServiceName}" TextColor="White" Grid.Row="3" Grid.Column="1" Margin="0,0,0,10"/>
 
-                                    <Label Text="Confirmed:" TextColor="White" Grid.Row="4" Grid.Column="0" Margin="0,0,0,10"/>
-                                    <Label Text="{Binding isConfirmed}" TextColor="White" Grid.Row="4" Grid.Column="1" Margin="0,0,0,10"/>
+                                    <Label Text="Status:" TextColor="White" Grid.Row="4" Grid.Column="0" Margin="0,0,0,10"/>
+                                    <Label x:Name="StatusLabel" Text="{Binding Status}" Grid.Row="4" Grid.Column="1" Margin="0,0,0,10">
+                                        <Label.Triggers>
+                                            <DataTrigger TargetType="Label" Binding="{Binding Status}" Value="Unconfirmed">
+                                                <Setter Property="TextColor" Value="#3498DB"/>
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Label" Binding="{Binding Status}" Value="Confirmed">
+                                                <Setter Property="TextColor" Value="#27AE60"/>
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Label" Binding="{Binding Status}" Value="Under Maintenance">
+                                                <Setter Property="TextColor" Value="#F39C12"/>
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Label" Binding="{Binding Status}" Value="Ready to Pick Up">
+                                                <Setter Property="TextColor" Value="#9B59B6"/>
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Label" Binding="{Binding Status}" Value="Finished">
+                                                <Setter Property="TextColor" Value="#95A5A6"/>
+                                            </DataTrigger>
+                                        </Label.Triggers>
+                                    </Label>
+
                                 </Grid>
 
                             </StackLayout>

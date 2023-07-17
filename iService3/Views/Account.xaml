@@ -28,7 +28,9 @@
             <Frame HeightRequest="120" WidthRequest="120"
                    CornerRadius="60"
                    VerticalOptions="Center" HorizontalOptions="Center" Margin="120,0,120,0" BorderColor="#00bfff">
-                <Image Source="avatar.png"
+                <Image 
+                    x:Name="avatar"
+                    Source="avatar.png"
                        HeightRequest="120" WidthRequest="120"
                        Aspect="AspectFill">
                     <Image.GestureRecognizers>
@@ -36,7 +38,6 @@
                     </Image.GestureRecognizers>
                 </Image>
             </Frame>
-            
 
             <!-- User name -->
             <Label 

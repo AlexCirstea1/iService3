@@ -9,11 +9,13 @@ public partial class App : Application
 {
     private readonly SecureStorageToolKit _secureStorage;
     private readonly UserService _userService;
+    private readonly CarService _carService;
 
     public App()
     {
         _secureStorage = new SecureStorageToolKit();
         _userService = new UserService();
+        _carService = new CarService();
         InitializeComponent();
         if (Preferences.ContainsKey("IsLoggedIn") && Preferences.Get("IsLoggedIn", false))
         {
@@ -39,19 +41,29 @@ public partial class App : Application
             userData = await _userService.GetUserById(Int32.Parse(userData.UserId));
             userJson = JsonConvert.SerializeObject(userData);
             Preferences.Set("userData", userJson);
+            LoadImage(int.Parse(userData.UserId));
         }
     }
 
-    private async Task<bool> GetStatus()
+    private async void LoadImage(int userId)
     {
-        var token = await _secureStorage.GetToken();
-        if (token.Length == 32)
+        var favoriteCarId = await _userService.GetFavoriteCarId(userId);
+        try
         {
-            return true;
+            byte[] imageBytes = await _carService.GetImage(favoriteCarId);
+            if (imageBytes != null)
+            {
+                var imageSource = ImageSource.FromStream(() => new MemoryStream(imageBytes));
+                ImageStorage.CarImage = imageSource;
+            }
+            else
+            {
+                Console.WriteLine("Image not found or error occurred.");
+            }
         }
-        else
+        catch (Exception ex)
         {
-            return false;
+            Console.WriteLine($"An error occurred while loading the image: {ex.Message}");
         }
     }
 }

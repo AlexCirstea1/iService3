@@ -32,7 +32,7 @@ public partial class AppointmentPage : ContentPage
             foreach (var item in appointments)
             {
                 item.ServiceName = item.Service.ServiceName;
-                item.CarName = item.Car.Manufacturer;
+                item.CarName = item.Car.Manufacturer + " " + item.Car.Model;
             }
             appointmentsListView.ItemsSource = appointments;
 

@@ -23,7 +23,7 @@ namespace iService3.Models
 
         public int ServiceId { get; set; }
         public bool isConfirmed { get; set; }
-
+        public string Status { get; set; } = null!;
         public virtual Car Car { get; set; } = null!;
 
         public virtual Service Service { get; set; } = null!;
